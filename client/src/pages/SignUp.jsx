@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth"
 const SignUp = () => {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
@@ -66,6 +67,7 @@ const SignUp = () => {
         >
           {loading ? "Loading.." : "Sign Up"}
         </button>
+        <OAuth/>
       </form>
       <div className="flex mt-7 gap-2">
         <p className="text-center text-gray-500">Have an Account?</p>
