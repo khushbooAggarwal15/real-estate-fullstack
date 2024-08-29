@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
 import cookieParser from "cookie-parser";
+import listingRouter from "./routes/listing.route.js";
 
 dotenv.config();
 mongoose
@@ -25,12 +26,7 @@ app.listen(3000, () => {
 app.use("/api/user", userRouter);
 
 app.use("/api/auth", authRouter);
-// app.post("/test", (req, res) => {
-//   console.log(req.headers.access_token);
-//   console.log(req.cookies);
-//   res.send("Cookies logged successfully");
-// });
-
+app.use("/api/listing", listingRouter);
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
