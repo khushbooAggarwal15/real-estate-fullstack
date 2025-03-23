@@ -1,10 +1,8 @@
 import express from "express";
-import {
-  createListing,
-  deleteListing,
-  editListing,
+import { 
   getListingById,
   showListing,
+  getListings,
 } from "../controllers/listing.controller.js";
 import { verifyToken } from "../utils/verifyUser.js";
 
@@ -14,4 +12,5 @@ router.get("/showlisting/:id", verifyToken, showListing);
 router.delete("/deletelisting/:id", verifyToken, deleteListing);
 router.put("/editlisting/:id", verifyToken, editListing);
 router.get("/getlisting/:id", verifyToken, getListingById);
+router.get("/getlistings", getListings);
 export default router;

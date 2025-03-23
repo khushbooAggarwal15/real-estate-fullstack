@@ -74,8 +74,18 @@ export const getListingById = async (req, res, next) => {
       next(errorHandler(404, "Listing not found"));
       return;
     }
-    if (req.user.id !== listing.userRef) {
-      next(errorHandler(401, "You can only edit your own listings"));
+
+    return res.status(201).json(listing);
+  } catch (error) {
+    next(error);
+  }
+};
+export const getListings = async (req, res, next) => {
+  const listing = await Listing.findById(req.params.id);
+
+  try {
+    if (!listing || listing === null) {
+      next(errorHandler(404, "Listing not found"));
       return;
     }
 
