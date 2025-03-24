@@ -8,5 +8,8 @@ export default defineConfig({
       "/api": { target: "http://localhost:3000" },
     },
   },
+  build: {
+    outDir: "dist", // Ensure the build output goes to the 'dist' folder
+  },
   plugins: [react()],
 });
